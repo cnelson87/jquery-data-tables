@@ -2,7 +2,7 @@
 /**
 *	returns an Ajax GET request using deferred, url is required, dataType is optional
 **/
-GetAjaxContent = function(url, dataType) {
+var GetAjaxContent = function(url, dataType) {
 	return $.ajax({
 		type: 'GET',
 		url: url,
