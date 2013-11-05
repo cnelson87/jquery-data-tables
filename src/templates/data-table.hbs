@@ -1,0 +1,20 @@
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Population</th>
+			<th>World Pop %</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		{{#each .}}
+		<tr>
+			<td><a href="{{url}}" target="_blank">{{name}}</a></td>
+			<td>{{population}}</td>
+			<td>{{percentage}}</td>
+			<td>{{date}}</td>
+		</tr>
+		{{/each}}
+	</tbody>
+</table>

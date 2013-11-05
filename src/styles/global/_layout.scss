@@ -72,6 +72,7 @@ html, body {
 		margin: 0 auto;
 		padding: 20px;
 		position: relative;
+		overflow: scroll;
 		@include prefix(box-sizing, border-box);
 
 		#content {

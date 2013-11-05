@@ -1,7 +1,10 @@
 
-@import "vars";
-@import "mixins";
-@import "base";
-@import "utils";
-@import "forms";
-@import "layout";
+@import "global/vars";
+@import "global/mixins";
+@import "global/base";
+@import "global/utils";
+@import "global/forms";
+@import "global/layout";
+
+//custom components
+@import "custom/datatable";

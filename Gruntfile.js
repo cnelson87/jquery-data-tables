@@ -154,11 +154,11 @@
 			styles: {
 				files: '<%= sourceStyles %>/**/*.*',
 				tasks: ['sass']
-			}//,
-			// templates: {
-			// 	files: '<%= sourceTemplates %>/**/*.hbs',
-			// 	tasks: ['browserify2']
-			// }
+			},
+			templates: {
+				files: '<%= sourceTemplates %>/**/*.hbs',
+				tasks: ['browserify2']
+			}
 		}
 
 	});

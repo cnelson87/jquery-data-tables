@@ -867,6 +867,7 @@ html, body {
   margin: 0 auto;
   padding: 20px;
   position: relative;
+  overflow: scroll;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -885,4 +886,39 @@ html, body {
 #main #main-inner.twocols #subcol {
   float: right;
   width: 200px;
+}
+
+/* DATA TABLE
+-------------------------------------------------------*/
+.data-table-container table {
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  margin: 0;
+}
+.data-table-container table th, .data-table-container table td {
+  height: 20px;
+  min-width: 100px;
+  max-width: 300px;
+  padding: 4px 5px;
+  overflow: hidden;
+  line-height: 20px;
+  text-align: left;
+  text-overflow: ellipsis;
+  vertical-align: top;
+  border: 1px solid #DDD;
+}
+.data-table-container table th {
+  font-weight: bold;
+  white-space: nowrap;
+}
+.data-table-container table thead th {
+  vertical-align: bottom;
+  background-color: #f9f9f9;
+}
+.data-table-container table tbody tr:nth-child(even) td,
+.data-table-container table tbody tr:nth-child(even) th {
+  background-color: #f9f9f9;
 }
