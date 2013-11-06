@@ -22,17 +22,32 @@
 			text-align: left;
 			text-overflow: ellipsis;
 			vertical-align: top;
-			border: 1px solid #DDD;
+			border: 1px solid #ddd;
 		}
 
 		th {
 			font-weight: bold;
-			white-space: nowrap;
-		}
-
-		thead th {
 			vertical-align: bottom;
+			white-space: nowrap;
 			background-color: #f9f9f9;
+
+			&.sorting_asc:after, &.sorting_desc:after, &.sorting:after {
+				content: "";
+				display: inline-block;
+				width: 11px;
+				height: 10px;
+				background: transparent url('#{$image-path}/carets.png') no-repeat 0 -10px;
+				margin-left: 6px;
+			}
+
+			&.sorting_desc:after {
+				background-position: 0 0;
+			}
+
+			&.sorting:after {
+				opacity: 0.3;
+			}
+
 		}
 
 		tbody tr:nth-child(even) td,
@@ -40,9 +55,94 @@
 			background-color: #f9f9f9;
 		}
 
+	}
 
+	.data-table-top {
+		text-align: center;
+		margin-bottom: 16px;
+		position: relative;
 
+		.dataTables_info {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
 
+		.dataTables_filter {
+			label {
+				display: inline-block;
+				width: 244px;
+				height: 24px;
+				position: relative;
+
+				input[type=text] {
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
+
+			}
+		}
+
+	}
+
+	.data-table-filters {
+		margin-bottom: 16px;
+		position: relative;
+
+		.column-filter-widget {
+			display: inline-block;
+			height: 40px;
+			margin: 0 5px;
+
+			select {
+				display: block;
+				width: 140px;
+				margin-bottom: 8px;
+			}
+
+			a {
+				position: absolute;
+			}
+
+		}
+
+	}
+
+	.data-table-bottom {
+		height: 24px;
+		font-size: 14px;
+		line-height: 22px;
+		text-align: center;
+		margin-top: 16px;
+		position: relative;
+	
+		a {
+			display: inline-block;
+			cursor: pointer;
+			text-decoration: none;
+			min-width: 10px;
+			background: #f9f9f9;
+			border: 1px solid #ddd;
+			margin: 0 4px;
+			padding: 0 8px;
+			&:hover, &:focus {
+				background: #ddd;
+			}
+			&.paginate_button_disabled {
+				cursor: default;
+				color: #ddd;
+				background: #f9f9f9;
+			}
+			&.paginate_active {
+				cursor: default;
+				color: #010101;
+				background: #ddd;
+				border: 1px solid #010101;
+			}
+		}
 
 	}
 

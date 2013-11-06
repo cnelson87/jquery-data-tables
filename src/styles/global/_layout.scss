@@ -70,7 +70,7 @@ html, body {
 		height: 100%;
 		background: #fff;
 		margin: 0 auto;
-		padding: 20px;
+		padding: 0 20px;
 		position: relative;
 		overflow: scroll;
 		@include prefix(box-sizing, border-box);
@@ -78,6 +78,14 @@ html, body {
 		#content {
 			width: 100%;
 			min-height: 400px;
+			padding: 40px 0;
+			position: relative;
+		}
+
+		#subcol {
+			width: 200px;
+			min-height: 400px;
+			padding: 40px 0;
 			position: relative;
 		}
 
@@ -89,7 +97,6 @@ html, body {
 			}
 			#subcol {
 				float: right;
-				width: 200px;
 			}
 
 		}
