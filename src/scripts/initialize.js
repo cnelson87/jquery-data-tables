@@ -1,6 +1,15 @@
 
-var application = require('./Application');
+var Application = require('./Application');
+var Test = require('./Test');
 
 $(function() {
-	application.initialize();
+	var pageId = $('body').attr('id');
+	switch(pageId) {
+		case 'page-test':
+			Test.initialize();
+			break;
+		default:
+			Application.initialize();
+	}
+
 });

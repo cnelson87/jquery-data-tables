@@ -1,19 +1,36 @@
-<table id="data-table">
+<table>
 	<thead>
 		<tr>
 			<th>Name</th>
-			<th>Population</th>
-			<th>World Pop %</th>
+			<th>City</th>
+			<th>State</th>
+			{{!-- <th>Country</th> --}}
 			<th>Year</th>
+			<th>Amount</th>
+			<th>Program</th>
 		</tr>
 	</thead>
+	<tfoot>
+		<tr>
+			<th>Name</th>
+			<th>City</th>
+			<th>State</th>
+			{{!-- <th>Country</th> --}}
+			<th>Year</th>
+			<th>Amount</th>
+			<th>Program</th>
+		</tr>
+	</tfoot>
 	<tbody>
 		{{#each .}}
-		<tr>
-			<td><a href="{{url}}" target="_blank">{{name}}</a></td>
-			<td>{{population}}</td>
-			<td>{{percentage}}</td>
-			<td>{{year}}</td>
+		<tr data-id="{{id}}">
+			<td><a href="/url?id={{id}}">{{Name}}</a></td>
+			<td>{{City}}</td>
+			<td>{{State}}</td>
+			{{!-- <td>{{Country}}</td> --}}
+			<td>{{Year}}</td>
+			<td>{{Amount}}</td>
+			<td>{{Program}}</td>
 		</tr>
 		{{/each}}
 	</tbody>

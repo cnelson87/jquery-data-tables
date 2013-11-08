@@ -75,7 +75,8 @@
 					// '<%= sourceVendor %>/underscore-1.5.2.min.js',
 					// '<%= sourceVendor %>/backbone-1.1.0.min.js'
 					'<%= sourceVendor %>/jquery.dataTables.min.js',
-					'<%= sourceVendor %>/ColumnFilterWidgets.js'
+					//'<%= sourceVendor %>/jquery.dataTables.ColumnFilterWidgets.js'
+					'<%= sourceVendor %>/jquery.dataTables.ColumnFilter.js'
 				],
 				dest: '<%= outputVendor %>/vendor.js'
 			}//,

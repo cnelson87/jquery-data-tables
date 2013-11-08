@@ -1,12 +1,15 @@
 
 var getAjaxContent = require('./utilities/GetAjaxContent');
+//var templateDataTableOld = require('../templates/data-table-old.hbs');
 var templateDataTable = require('../templates/data-table.hbs');
 
 var Application = {
 	initialize: function() {
 		var self = this;
+		//var dataUrlOld = '/data/territories.json';
+		var dataUrl = '/data/granteelist.json';
 
-		$.when(getAjaxContent('/data/territories.json')).done(function(response) {
+		$.when(getAjaxContent(dataUrl)).done(function(response) {
 			self.buildTable(response);
 		}).fail(function(error) {
 			console.log(error);
@@ -16,36 +19,57 @@ var Application = {
 
 	buildTable: function(data) {
 		var self = this;
-		var $document = $(document);
-		var $body = $('body');
+		var len = data.length;
+		//var tmplDataTableold = templateDataTableOld;
 		var tmplDataTable = templateDataTable;
-		var $elTarget = $('#data-target');
+		var $elTarget = $('#datatable-target');
 		var $elTable;
-		var dt;
+		// var arYears = [];
+		// var arPrograms = [];
 
+		// for (var i=0; i<len; i++) {
 
-		for (var i=0, len=data.length; i<len; i++) {
-			dt = new Date(data[i].date.replace(/-/g,'/'));
-			data[i].year = dt.getFullYear().toString();
-		}
+		// 	if (arYears.indexOf(data[i].Year) === -1 ) {
+		// 		arYears.push(data[i].Year);
+		// 	}
 
+		// 	if (arPrograms.indexOf(data[i].Program) === -1 ) {
+		// 		arPrograms.push(data[i].Program);
+		// 	}
+
+		// }
+		// arYears.sort();
+		// arPrograms.sort();
+		// console.log(arYears);
+		// console.log(arPrograms);
 
 		$elTarget.html(tmplDataTable(data));
 		$elTable = $elTarget.find('table');
 		$elTable.dataTable({
 			"sPaginationType": "full_numbers",
-			"iDisplayLength": 40,
+			"iDisplayLength": 30,
 			// "bLengthChange": false,
 			// "bInfo": false
+			// "bSort": true,
 			"bSortClasses": false,
-			//"bSort": true,
-			"sDom": '<"data-table-top"if><"data-table-filters"W>t<"data-table-bottom"p><"clear">',
-			"oColumnFilterWidgets": {
-				"aiExclude": [0,1,2],
-				"iMaxSelections": 1
-			}
+			"sDom": '<"data-table-heading"if<"clear">><"data-table-paginav"p>t<"data-table-paginav"p>'
+		}).columnFilter({
+			aoColumns: [
+				null,
+				null,
+				null,
+				//null,
+				{sSelector: "#datafilter-years", type: "select" /*,values: arYears*/},
+				null,
+				{sSelector: "#datafilter-programs", type: "select" /*, values: arPrograms*/}
+			]
 		});
 		$('.dataTables_filter input').attr({'placeholder': 'Keyword Search'});
+		//remove text node 'Search' from generated label
+		$('.dataTables_filter label').contents().filter(function() {
+			return this.nodeType === 3;
+		}).remove();
+
 
 
 

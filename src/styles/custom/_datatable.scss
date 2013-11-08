@@ -8,28 +8,24 @@
 		width: 100%;
 		max-width: 100%;
 		background-color: transparent;
-		border: 1px solid #ddd;
+		// border: 1px solid #ddd;
 		border-collapse: collapse;
 		margin: 0;
 
 		th, td {
-			height: 20px;
 			min-width: 100px;
 			max-width: 300px;
-			padding: 4px 5px;
-			overflow: hidden;
-			line-height: 20px;
+			padding: 5px 8px;
 			text-align: left;
-			text-overflow: ellipsis;
 			vertical-align: top;
-			border: 1px solid #ddd;
+			// border: 1px solid #ddd;
 		}
 
 		th {
 			font-weight: bold;
 			vertical-align: bottom;
 			white-space: nowrap;
-			background-color: #f9f9f9;
+			background-color: #ddd;
 
 			&.sorting_asc:after, &.sorting_desc:after, &.sorting:after {
 				content: "";
@@ -52,23 +48,35 @@
 
 		tbody tr:nth-child(even) td,
 		tbody tr:nth-child(even) th {
-			background-color: #f9f9f9;
+			background-color: #efefef;
+		}
+
+		tfoot {
+
+			select {
+				max-width: 140px;
+			}
+
 		}
 
 	}
 
-	.data-table-top {
+	.data-table-heading {
+		height: 24px;
 		text-align: center;
 		margin-bottom: 16px;
 		position: relative;
 
 		.dataTables_info {
-			position: absolute;
-			right: 0;
-			top: 0;
+			float: left;
+			height: 24px;
+			line-height: 24px;
+			padding: 0 8px;
 		}
 
 		.dataTables_filter {
+			float: right;
+
 			label {
 				display: inline-block;
 				width: 244px;
@@ -111,12 +119,12 @@
 
 	}
 
-	.data-table-bottom {
+	.data-table-paginav {
 		height: 24px;
 		font-size: 14px;
 		line-height: 22px;
 		text-align: center;
-		margin-top: 16px;
+		margin: 12px 0;
 		position: relative;
 	
 		a {

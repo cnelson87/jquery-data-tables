@@ -459,6 +459,7 @@ textarea {
 select {
   width: auto;
   min-width: 80px;
+  max-width: 100%;
 }
 
 textarea {
@@ -882,8 +883,7 @@ html, body {
 }
 #main #main-inner #subcol {
   width: 200px;
-  min-height: 400px;
-  padding: 40px 0;
+  padding: 94px 0 40px 0;
   position: relative;
 }
 #main #main-inner.twocols #content {
@@ -900,27 +900,21 @@ html, body {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
-  border: 1px solid #ddd;
   border-collapse: collapse;
   margin: 0;
 }
 .data-table-container table th, .data-table-container table td {
-  height: 20px;
   min-width: 100px;
   max-width: 300px;
-  padding: 4px 5px;
-  overflow: hidden;
-  line-height: 20px;
+  padding: 5px 8px;
   text-align: left;
-  text-overflow: ellipsis;
   vertical-align: top;
-  border: 1px solid #ddd;
 }
 .data-table-container table th {
   font-weight: bold;
   vertical-align: bottom;
   white-space: nowrap;
-  background-color: #f9f9f9;
+  background-color: #ddd;
 }
 .data-table-container table th.sorting_asc:after, .data-table-container table th.sorting_desc:after, .data-table-container table th.sorting:after {
   content: "";
@@ -938,25 +932,33 @@ html, body {
 }
 .data-table-container table tbody tr:nth-child(even) td,
 .data-table-container table tbody tr:nth-child(even) th {
-  background-color: #f9f9f9;
+  background-color: #efefef;
 }
-.data-table-container .data-table-top {
+.data-table-container table tfoot select {
+  max-width: 140px;
+}
+.data-table-container .data-table-heading {
+  height: 24px;
   text-align: center;
   margin-bottom: 16px;
   position: relative;
 }
-.data-table-container .data-table-top .dataTables_info {
-  position: absolute;
-  right: 0;
-  top: 0;
+.data-table-container .data-table-heading .dataTables_info {
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 8px;
 }
-.data-table-container .data-table-top .dataTables_filter label {
+.data-table-container .data-table-heading .dataTables_filter {
+  float: right;
+}
+.data-table-container .data-table-heading .dataTables_filter label {
   display: inline-block;
   width: 244px;
   height: 24px;
   position: relative;
 }
-.data-table-container .data-table-top .dataTables_filter label input[type=text] {
+.data-table-container .data-table-heading .dataTables_filter label input[type=text] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -980,15 +982,15 @@ html, body {
 .data-table-container .data-table-filters .column-filter-widget a {
   position: absolute;
 }
-.data-table-container .data-table-bottom {
+.data-table-container .data-table-paginav {
   height: 24px;
   font-size: 14px;
   line-height: 22px;
   text-align: center;
-  margin-top: 16px;
+  margin: 12px 0;
   position: relative;
 }
-.data-table-container .data-table-bottom a {
+.data-table-container .data-table-paginav a {
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
@@ -998,15 +1000,15 @@ html, body {
   margin: 0 4px;
   padding: 0 8px;
 }
-.data-table-container .data-table-bottom a:hover, .data-table-container .data-table-bottom a:focus {
+.data-table-container .data-table-paginav a:hover, .data-table-container .data-table-paginav a:focus {
   background: #ddd;
 }
-.data-table-container .data-table-bottom a.paginate_button_disabled {
+.data-table-container .data-table-paginav a.paginate_button_disabled {
   cursor: default;
   color: #ddd;
   background: #f9f9f9;
 }
-.data-table-container .data-table-bottom a.paginate_active {
+.data-table-container .data-table-paginav a.paginate_active {
   cursor: default;
   color: #010101;
   background: #ddd;
