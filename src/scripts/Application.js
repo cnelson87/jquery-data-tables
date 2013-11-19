@@ -1,67 +1,87 @@
 
 var getAjaxContent = require('./utilities/GetAjaxContent');
-//var templateDataTableOld = require('../templates/data-table-old.hbs');
 var templateDataTable = require('../templates/data-table.hbs');
+var templateDataFilters = require('../templates/data-filters.hbs');
+var templateNoResults = require('../templates/no-results.hbs');
 
 var Application = {
 	initialize: function() {
 		var self = this;
-		//var dataUrlOld = '/data/territories.json';
-		var dataUrl = '/data/granteelist.json';
 
-		$.when(getAjaxContent(dataUrl)).done(function(response) {
-			self.buildTable(response);
+		this.$elContainer = $('#data-table-container');
+		this.$elFiltersContainer = $('#data-filters-container');
+		this.$elTable = null;
+		this.$elReset = null;
+		this.$elFilters = null;
+		this.$elSearch = null;
+
+		this.dataUrl = '/data/granteelist.json';
+		this.obTable = null;
+		this.obData = null;
+		this.len = 0;
+
+		this.getData();
+
+	},
+
+	getData: function() {
+		var self = this;
+
+		$.when(getAjaxContent(this.dataUrl)).done(function(response) {
+			self.processData(response);
 		}).fail(function(error) {
 			console.log(error);
 		});
 
 	},
 
-	buildTable: function(data) {
+	processData: function(response) {
 		var self = this;
-		var len = data.length;
-		//var tmplDataTableold = templateDataTableOld;
+
+		this.obData = response;
+		this.len = this.obData.length;
+
+		for (var i=0; i<this.len; i++) {
+			this.obData[i].AmtStr = this.obData[i].Amount;
+		}
+		console.log(this.obData[0]);
+
+		this.buildTable();
+
+	},
+
+	buildTable: function() {
+		var self = this;
+		var tmplDataFilters = templateDataFilters;
 		var tmplDataTable = templateDataTable;
-		var $elTarget = $('#datatable-target');
-		var $elTable;
-		// var arYears = [];
-		// var arPrograms = [];
+		var tmpleNoResults = templateNoResults;
 
-		// for (var i=0; i<len; i++) {
+		this.$elContainer.html(tmplDataTable(this.obData));
+		this.$elFiltersContainer.html(tmplDataFilters());
+		this.$elTable = this.$elContainer.find('table');
 
-		// 	if (arYears.indexOf(data[i].Year) === -1 ) {
-		// 		arYears.push(data[i].Year);
-		// 	}
-
-		// 	if (arPrograms.indexOf(data[i].Program) === -1 ) {
-		// 		arPrograms.push(data[i].Program);
-		// 	}
-
-		// }
-		// arYears.sort();
-		// arPrograms.sort();
-		// console.log(arYears);
-		// console.log(arPrograms);
-
-		$elTarget.html(tmplDataTable(data));
-		$elTable = $elTarget.find('table');
-		$elTable.dataTable({
+		this.obTable = this.$elTable.dataTable({
+			"aoColumnDefs": [
+				{"sType": "numeric", "aTargets": [5]}
+			],
+			"oLanguage": {
+				"sZeroRecords": tmpleNoResults()
+			},
 			"sPaginationType": "full_numbers",
 			"iDisplayLength": 30,
-			// "bLengthChange": false,
-			// "bInfo": false
-			// "bSort": true,
 			"bSortClasses": false,
+			"oSearch": {"sSearch": "", "bSmart": true, "bRegex": true},
 			"sDom": '<"data-table-heading"if<"clear">><"data-table-paginav"p>t<"data-table-paginav"p>'
 		}).columnFilter({
 			aoColumns: [
-				null,
-				null,
-				null,
 				//null,
-				{sSelector: "#datafilter-years", type: "select" /*,values: arYears*/},
 				null,
-				{sSelector: "#datafilter-programs", type: "select" /*, values: arPrograms*/}
+				{sSelector: "#datafilter-cities", type: "select"},
+				{sSelector: "#datafilter-states", type: "select"},
+				{sSelector: "#datafilter-countries", type: "select"},
+				{sSelector: "#datafilter-years", type: "select"},
+				null,
+				{sSelector: "#datafilter-programs", type: "select"}
 			]
 		});
 		$('.dataTables_filter input').attr({'placeholder': 'Keyword Search'});
@@ -70,8 +90,40 @@ var Application = {
 			return this.nodeType === 3;
 		}).remove();
 
+		this.$elReset = this.$elFiltersContainer.find('#datafilters-reset');
+		this.$elFilters = this.$elFiltersContainer.find('select');
+		this.$elSearch = null;
 
+		this.bindEvents();
 
+	},
+
+	bindEvents: function() {
+		var self = this;
+
+		this.$elTable.on('click', 'button.clearall', function(e) {
+			e.preventDefault();
+			self.reset();
+		});
+
+		this.$elReset.on('click', function(e) {
+			e.preventDefault();
+			self.reset();
+		});
+
+		// this.$elSearch.on('keyup', function(e) {
+		// 	self.search();
+		// });
+
+	},
+
+	reset: function() {
+		//this.$elSearch.val('');
+		this.$elFilters.prop('selectedIndex',0);
+		this.obTable.fnFilterClear();
+	},
+
+	search: function() {
 
 	}
 

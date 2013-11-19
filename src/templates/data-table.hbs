@@ -1,36 +1,40 @@
+
 <table>
 	<thead>
 		<tr>
-			<th>Name</th>
+			{{!-- <th class="hidden">Name</th> --}}
+			<th class="name">Name</th>
 			<th>City</th>
 			<th>State</th>
-			{{!-- <th>Country</th> --}}
-			<th>Year</th>
-			<th>Amount</th>
-			<th>Program</th>
+			<th class="hidden">Country</th>
+			<th class="year">Year</th>
+			<th class="num">Amount</th>
+			<th class="program">Program</th>
 		</tr>
 	</thead>
 	<tfoot>
 		<tr>
-			<th>Name</th>
+			{{!-- <th class="hidden">Name</th> --}}
+			<th class="name">Name</th>
 			<th>City</th>
 			<th>State</th>
-			{{!-- <th>Country</th> --}}
-			<th>Year</th>
-			<th>Amount</th>
-			<th>Program</th>
+			<th class="hidden">Country</th>
+			<th class="year">Year</th>
+			<th class="num">Amount</th>
+			<th class="program">Program</th>
 		</tr>
 	</tfoot>
 	<tbody>
 		{{#each .}}
 		<tr data-id="{{id}}">
-			<td><a href="/url?id={{id}}">{{Name}}</a></td>
+			{{!-- <td class="hidden">{{Name}}</td> --}}
+			<td class="name"><a href="/detailurl?id={{id}}">{{Name}}</a></td>
 			<td>{{City}}</td>
 			<td>{{State}}</td>
-			{{!-- <td>{{Country}}</td> --}}
-			<td>{{Year}}</td>
-			<td>{{Amount}}</td>
-			<td>{{Program}}</td>
+			<td class="hidden">{{Country}}</td>
+			<td class="year">{{Year}}</td>
+			<td class="num amount">{{AmtStr}}</td>
+			<td class="program">{{Program}}</td>
 		</tr>
 		{{/each}}
 	</tbody>

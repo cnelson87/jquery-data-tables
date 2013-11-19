@@ -70,13 +70,10 @@
 				},
 				src: [
 					'<%= sourceVendor %>/modernizr.custom.min.js',
-					// '<%= sourceVendor %>/json2.js',
 					'<%= sourceVendor %>/jquery-1.10.2.min.js',
-					// '<%= sourceVendor %>/underscore-1.5.2.min.js',
-					// '<%= sourceVendor %>/backbone-1.1.0.min.js'
-					'<%= sourceVendor %>/jquery.dataTables.min.js',
-					//'<%= sourceVendor %>/jquery.dataTables.ColumnFilterWidgets.js'
-					'<%= sourceVendor %>/jquery.dataTables.ColumnFilter.js'
+					'<%= sourceVendor %>/jquery.dataTables-1.10.0-dev.js',
+					'<%= sourceVendor %>/jquery.dataTables.ColumnFilter.js',
+					'<%= sourceVendor %>/jquery.dataTables.fnFilterClear.js'
 				],
 				dest: '<%= outputVendor %>/vendor.js'
 			}//,
