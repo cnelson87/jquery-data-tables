@@ -42,9 +42,11 @@ var Application = {
 		this.len = this.obData.length;
 
 		for (var i=0; i<this.len; i++) {
-			this.obData[i].AmtStr = this.obData[i].Amount;
+			this.obData[i].AmtStr = this.obData[i].Amount.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 		}
-		console.log(this.obData[0]);
+		console.log(this.obData[3]);
+		console.log(this.obData[100]);
+		console.log(this.obData[999]);
 
 		this.buildTable();
 
@@ -62,11 +64,14 @@ var Application = {
 
 		this.obTable = this.$elTable.dataTable({
 			"aoColumnDefs": [
-				{"sType": "numeric", "aTargets": [5]}
+				{"sType": "title-numeric", "aTargets": [5]}
 			],
 			"oLanguage": {
 				"sZeroRecords": tmpleNoResults()
 			},
+			// "fnDrawCallback": function( oSettings ) {
+			// 	alert( 'DataTables has redrawn the table' );
+			// },
 			"sPaginationType": "full_numbers",
 			"iDisplayLength": 30,
 			"bSortClasses": false,

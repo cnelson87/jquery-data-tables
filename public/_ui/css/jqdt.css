@@ -924,9 +924,6 @@ html, body {
 .data-table-container table th.num, .data-table-container table td.num {
   text-align: right;
 }
-.data-table-container table th.amount:before, .data-table-container table td.amount:before {
-  content: "$";
-}
 .data-table-container table th {
   font-weight: bold;
   vertical-align: bottom;
