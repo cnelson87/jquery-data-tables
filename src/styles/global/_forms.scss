@@ -1,6 +1,6 @@
-
+/*
 /* FORM ELEMENTS
--------------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 /**
 *	basic form elements
@@ -9,7 +9,7 @@
 fieldset {
 	display: block;
 	width: auto;
-	margin: 0 0 18px 0;
+	margin-bottom: 1.5em;
 }
 
 legend {
@@ -28,18 +28,14 @@ label.disabled {
 	color: $text-light-gray;
 }
 
-input, select, textarea {
+input, select, textarea, button {
 	color: $text-dark-gray;
 	font-family: Arial, sans-serif;
 	font-size: 13px;
 	vertical-align: top;
 	margin: 0;
 	padding: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing:border-box;
-	-o-box-sizing:border-box;
-	box-sizing: border-box;
+	@include prefix(box-sizing, border-box);
 }
 
 input:invalid,
@@ -196,12 +192,9 @@ button {
 	border: 1px solid #333;
 	border-radius: 3px;
 	padding: 4px 12px;
-	overflow: visible; /* IE width fix, no affect on other browsers */
-	-webkit-transition: color .2s, background-color .2s;
-	-moz-transition: color .2s, background-color .2s;
-	-ms-transition: color .2s, background-color .2s;
-	-o-transition: color .2s, background-color .2s;
-	transition: color .2s, background-color .2s;
+	/* IE width fix, no affect on other browsers */
+	overflow: visible;
+	@include prefix(transition, 'color .2s, background-color .2s');
 }
 input[type=submit]:focus, input[type=submit]:hover,
 input[type=reset]:focus, input[type=reset]:hover,

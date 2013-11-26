@@ -1,6 +1,6 @@
-
+/*
 /* LAYOUT
--------------------------------------------------------*/
+/*-----------------------------------------------------*/
 
 html, body {
 	height: 100%;
@@ -84,6 +84,7 @@ html, body {
 
 		#subcol {
 			width: 200px;
+			min-height: 400px;
 			padding: 94px 0 40px 0;
 			position: relative;
 		}
