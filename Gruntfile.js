@@ -88,7 +88,7 @@
 					'<%= sourceVendor %>/json2.js',
 					'<%= sourceVendor %>/jquery-1.10.2.min.js',
 					'<%= sourceVendor %>/jquery.dataTables-1.10.0-dev.js',
-					'<%= sourceVendor %>/jquery.dataTables.ColumnFilter.js',
+					'<%= sourceVendor %>/jquery.dataTables.columnFilter.js',
 					'<%= sourceVendor %>/jquery.dataTables.titleNumeric.js',
 					'<%= sourceVendor %>/jquery.dataTables.fnFilterClear.js',
 					'<%= sourceVendor %>/class.js'
