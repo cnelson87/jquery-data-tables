@@ -18,7 +18,6 @@ var Application = {
 		this.dataUrl = '/data/granteelist.json';
 		this.obTable = null;
 		this.obData = null;
-		this.len = 0;
 
 		this.getData();
 
@@ -28,27 +27,11 @@ var Application = {
 		var self = this;
 
 		$.when(getAjaxContent(this.dataUrl)).done(function(response) {
-			self.processData(response);
+			self.obData = response;
+			self.buildTable();
 		}).fail(function(error) {
 			console.log(error);
 		});
-
-	},
-
-	processData: function(response) {
-		var self = this;
-
-		this.obData = response;
-		this.len = this.obData.length;
-
-		for (var i=0; i<this.len; i++) {
-			this.obData[i].AmtStr = this.obData[i].Amount.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-		}
-		console.log(this.obData[3]);
-		console.log(this.obData[100]);
-		console.log(this.obData[999]);
-
-		this.buildTable();
 
 	},
 
@@ -126,6 +109,7 @@ var Application = {
 		//this.$elSearch.val('');
 		this.$elFilters.prop('selectedIndex',0);
 		this.obTable.fnFilterClear();
+		this.obTable.fnSort([[0,'asc']]);
 	},
 
 	search: function() {

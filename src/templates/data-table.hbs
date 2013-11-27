@@ -1,41 +1,41 @@
 
-<table>
-	<thead>
-		<tr>
-			{{!-- <th class="hidden">Name</th> --}}
-			<th class="name">Name</th>
-			<th>City</th>
-			<th>State</th>
-			<th class="hidden">Country</th>
-			<th class="year">Year</th>
-			<th class="num">Amount</th>
-			<th class="program">Program</th>
-		</tr>
-	</thead>
-	<tfoot>
-		<tr>
-			{{!-- <th class="hidden">Name</th> --}}
-			<th class="name">Name</th>
-			<th>City</th>
-			<th>State</th>
-			<th class="hidden">Country</th>
-			<th class="year">Year</th>
-			<th class="num">Amount</th>
-			<th class="program">Program</th>
-		</tr>
-	</tfoot>
-	<tbody>
-		{{#each .}}
-		<tr data-id="{{id}}">
-			{{!-- <td class="hidden">{{Name}}</td> --}}
-			<td class="name"><a href="/detailurl?id={{id}}">{{Name}}</a></td>
-			<td>{{City}}</td>
-			<td>{{State}}</td>
-			<td class="hidden">{{Country}}</td>
-			<td class="year">{{Year}}</td>
-			<td class="num"><span title="{{Amount}}">${{AmtStr}}</span></td>
-			<td class="program">{{Program}}</td>
-		</tr>
-		{{/each}}
-	</tbody>
-</table>
+	<table>
+		<thead>
+			<tr>
+				{{!-- <th class="hidden">Name</th> --}}
+				<th class="name">Name</th>
+				<th>City</th>
+				<th>State</th>
+				<th class="hidden">Country</th>
+				<th class="year">Year</th>
+				<th class="num">Amount</th>
+				<th class="program">Program</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				{{!-- <th class="hidden">Name</th> --}}
+				<th class="name">Name</th>
+				<th>City</th>
+				<th>State</th>
+				<th class="hidden">Country</th>
+				<th class="year">Year</th>
+				<th class="num">Amount</th>
+				<th class="program">Program</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			{{#each .}}
+			<tr data-id="{{id}}">
+				{{!-- <td class="hidden">{{Name}}</td> --}}
+				<td class="name"><a href="/detailurl?id={{id}}">{{Name}}</a></td>
+				<td>{{City}}</td>
+				<td>{{State}}</td>
+				<td class="hidden">{{Country}}</td>
+				<td class="year">{{Year}}</td>
+				<td class="num"><span title="{{Amount}}">{{AmountStr}}</span></td>
+				<td class="program">{{Program}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
