@@ -76,14 +76,12 @@ html, body {
 		@include prefix(box-sizing, border-box);
 
 		#content {
-			width: 100%;
 			min-height: 400px;
 			padding: 40px 0;
 			position: relative;
 		}
 
 		#subcol {
-			width: 200px;
 			min-height: 400px;
 			padding: 94px 0 40px 0;
 			position: relative;
@@ -97,10 +95,34 @@ html, body {
 			}
 			#subcol {
 				float: right;
+				width: 200px;
 			}
 
 		}
 
+	}
+
+}
+
+.wide-layout {
+
+	#header #header-inner,
+	#footer #footer-inner,
+	#main #main-inner {
+		width: 1200px;
+	}
+
+	#main {
+		#main-inner {
+			&.twocols {
+				#content {
+					width: 800px;
+				}
+				#subcol {
+					width: 320px;
+				}
+			}
+		}
 	}
 
 }

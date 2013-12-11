@@ -1,0 +1,9 @@
+	<span class="custom-select-label">{{label}}</span>
+	<span class="custom-select-arrow"></span>
+	<div class="custom-select-list">
+		<ul>
+			{{#each items}}
+			<li><a href="#{{rel}}" rel="{{rel}}" class="{{#active}}active{{/active}}">{{text}}</a></li>
+			{{/each}}
+		</ul>
+	</div>

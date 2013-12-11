@@ -3,6 +3,7 @@ var getAjaxContent = require('./utilities/GetAjaxContent');
 var templateDataTable = require('../templates/data-table.hbs');
 var templateDataFilters = require('../templates/data-filters.hbs');
 var templateNoResults = require('../templates/no-results.hbs');
+var CustomApp = require('./CustomApp');
 
 var Application = {
 	initialize: function() {
@@ -37,6 +38,7 @@ var Application = {
 
 	buildTable: function() {
 		var self = this;
+		var $body = $('body');
 		var tmplDataFilters = templateDataFilters;
 		var tmplDataTable = templateDataTable;
 		var tmpleNoResults = templateNoResults;
@@ -83,6 +85,10 @@ var Application = {
 		this.$elSearch = null;
 
 		this.bindEvents();
+
+		if ($body.hasClass('custom-select-page')) {
+			CustomApp.initialize();
+		}
 
 	},
 
