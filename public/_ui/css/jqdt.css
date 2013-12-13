@@ -336,6 +336,7 @@ html, body { height: 100%; min-height: 100%; }
 .data-table-container table th.hidden, .data-table-container table td.hidden { display: none; }
 .data-table-container table th.num, .data-table-container table td.num { text-align: right; }
 .data-table-container table th { font-weight: bold; vertical-align: bottom; white-space: nowrap; background-color: #ddd; }
+.data-table-container table th.sorting_asc, .data-table-container table th.sorting_desc, .data-table-container table th.sorting { cursor: pointer; }
 .data-table-container table th.sorting_asc:after, .data-table-container table th.sorting_desc:after, .data-table-container table th.sorting:after { content: ""; display: inline-block; width: 11px; height: 10px; background: transparent url("../img/carets.png") no-repeat 0 -10px; margin-left: 6px; }
 .data-table-container table th.sorting_desc:after { background-position: 0 0; }
 .data-table-container table th.sorting:after { opacity: 0.3; }

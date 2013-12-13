@@ -9,6 +9,7 @@ var Application = {
 	initialize: function() {
 		var self = this;
 
+		this.$body = $('body');
 		this.$elContainer = $('#data-table-container');
 		this.$elFiltersContainer = $('#data-filters-container');
 		this.$elTable = null;
@@ -38,7 +39,6 @@ var Application = {
 
 	buildTable: function() {
 		var self = this;
-		var $body = $('body');
 		var tmplDataFilters = templateDataFilters;
 		var tmplDataTable = templateDataTable;
 		var tmpleNoResults = templateNoResults;
@@ -86,7 +86,7 @@ var Application = {
 
 		this.bindEvents();
 
-		if ($body.hasClass('custom-select-page')) {
+		if (this.$body.hasClass('custom-select-page')) {
 			CustomApp.initialize();
 		}
 
@@ -116,6 +116,9 @@ var Application = {
 		this.$elFilters.prop('selectedIndex',0);
 		this.obTable.fnFilterClear();
 		this.obTable.fnSort([[0,'asc']]);
+		if (this.$body.hasClass('custom-select-page')) {
+			CustomApp.$selects.change();
+		}
 	},
 
 	search: function() {

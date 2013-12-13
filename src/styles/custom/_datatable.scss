@@ -42,6 +42,10 @@
 			white-space: nowrap;
 			background-color: #ddd;
 
+			&.sorting_asc, &.sorting_desc, &.sorting {
+				cursor: pointer;
+			}
+
 			&.sorting_asc:after, &.sorting_desc:after, &.sorting:after {
 				content: "";
 				display: inline-block;

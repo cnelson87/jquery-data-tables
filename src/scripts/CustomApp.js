@@ -4,18 +4,12 @@ var CustomSelect = require('./widgets/CustomSelect');
 var CustomApp = {
 	initialize: function() {
 		var self = this;
-		var $selects = $('#data-filters-container').find('select');
 
-		console.log('CustomApp',$selects);
+		this.$selects = $('#data-filters-container').find('select');
 
-		for (var i=0, len = $selects.length; i<len; i++) {
-			new CustomSelect($($selects[i]));
+		for (var i=0, len = this.$selects.length; i<len; i++) {
+			new CustomSelect($(this.$selects[i]));
 		}
-
-
-	},
-
-	search: function() {
 
 	}
 

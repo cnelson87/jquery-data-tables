@@ -7,9 +7,9 @@ var CustomSelect = function($select, objOptions){
 	this.$options = this.$select.children('option');
 	this.$parent = this.$select.parent();
 	this.$el = null;
-	this.$label = null;
 	this.$links = null;
 	this.$current = null;
+	this.$label = null;
 
 	this.template = null;
 
@@ -45,6 +45,7 @@ CustomSelect.prototype = {
 		this.render();
 
 		this.$links = this.$el.find('a');
+		this.$current = $(this.$links[0]);
 		this.$label = this.$el.find(this.options.selectorLabel);
 
 	},
@@ -94,12 +95,12 @@ CustomSelect.prototype = {
 			.on('focusout', function(e){
 				self.__onInactive();
 			})
-			.on('mouseenter', function(e){
-				self.__onActive();
-			})
-			.on('mouseleave', function(e){
-				self.__onInactive();
-			})
+			// .on('mouseenter', function(e){
+			// 	self.__onActive();
+			// })
+			// .on('mouseleave', function(e){
+			// 	self.__onInactive();
+			// })
 			.on('click', 'a', function(e){
 				e.preventDefault();
 				self.$current = $(this);
@@ -114,8 +115,13 @@ CustomSelect.prototype = {
 **/
 
 	__onSelectChange: function(e){
-		//console.log('__onSelectChange');
-		var val = this.$select.val();
+		console.log('__onSelectChange');
+		var index = this.getIndex();
+		var val = this.getValue();
+		var $current = $(this.$links[index]);
+		if ($current[0] !== this.$current[0]) {
+			$current.click();
+		}
 		$.event.trigger('CustomSelect:selectChanged', [val]);
 	},
 
@@ -146,7 +152,8 @@ CustomSelect.prototype = {
 **/
 
 	updateUI: function(){
-		var val = this.$current.attr('rel');
+		var val = this.getValue();
+		var rel = this.$current.attr('rel');
 		var text = this.$current.text();
 
 		this.$label.text(text);
@@ -154,8 +161,10 @@ CustomSelect.prototype = {
 		this.$links.removeClass('active');
 		this.$current.addClass('active');
 
-		this.$select.val(val);
-		this.$select.change();
+		if (rel !== val) {
+			this.$select.val(rel);
+			this.$select.change();
+		}
 
 	},
 
@@ -167,12 +176,12 @@ CustomSelect.prototype = {
 		return this.$select.find('option:selected').text();
 	},
 
+	getValue: function(){
+		return this.$select.val();
+	},
+
 	render: function(){
-		// var html = Mustache.to_html(this.template, this.obData);
-		// this.$el.html(html).appendTo(this.$parent);
-
 		this.$el.html(this.template(this.obData)).appendTo(this.$parent);
-
 		this.$select.addClass('replaced');
 		return this.$el;
 	}
