@@ -70,7 +70,7 @@ CustomSelect.prototype = {
 				//to set active...
 				//active: i === index ? true : false //...too fancy
 				active: false //...much simpler
-			}
+			};
 		}
 		//...and more direct
 		this.obData.items[index].active = true;
@@ -95,12 +95,14 @@ CustomSelect.prototype = {
 			.on('focusout', function(e){
 				self.__onInactive();
 			})
-			// .on('mouseenter', function(e){
-			// 	self.__onActive();
-			// })
-			// .on('mouseleave', function(e){
-			// 	self.__onInactive();
-			// })
+/*
+			.on('mouseenter', function(e){
+				self.__onActive();
+			})
+			.on('mouseleave', function(e){
+				self.__onInactive();
+			})
+*/
 			.on('click', 'a', function(e){
 				e.preventDefault();
 				self.$current = $(this);

@@ -1,10 +1,11 @@
 {
   "name": "jquery-data-tables",
-  "shortName": "jqdt",
+  "abbr": "jqdt",
   "title": "jQuery DataTables",
   "description": "My sandbox for experimenting with jQuery DataTables.",
   "version": "0.0.1",
   "portNumber": 3111,
+  "livereloadPortNum": 31111,
   "main": "Gruntfile.js",
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -20,7 +21,7 @@
     "grunt-include-replace": "~1.1.1",
     "handleify": "~0.1.2",
     "load-grunt-config": "~0.7.0",
-    "load-grunt-tasks": "~0.2.0"
+    "load-grunt-tasks": "~0.2.1"
   },
   "repository": {
     "type": "git",

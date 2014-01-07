@@ -54,9 +54,11 @@ var Application = {
 			"oLanguage": {
 				"sZeroRecords": tmpleNoResults()
 			},
-			// "fnDrawCallback": function( oSettings ) {
-			// 	alert( 'DataTables has redrawn the table' );
-			// },
+/*
+			"fnDrawCallback": function( oSettings ) {
+				alert( 'DataTables has redrawn the table' );
+			},
+*/
 			"sPaginationType": "full_numbers",
 			"iDisplayLength": 30,
 			"bSortClasses": false,
@@ -106,7 +108,7 @@ var Application = {
 		});
 
 		// this.$elSearch.on('keyup', function(e) {
-		// 	self.search();
+		// self.search();
 		// });
 
 	},
@@ -122,9 +124,9 @@ var Application = {
 	},
 
 	search: function() {
-
+		// TODO: custom search function
 	}
 
-}
+};
 
 module.exports = Application;

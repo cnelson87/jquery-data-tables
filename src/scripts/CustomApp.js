@@ -13,6 +13,6 @@ var CustomApp = {
 
 	}
 
-}
+};
 
 module.exports = CustomApp;
