@@ -140,7 +140,7 @@ var Application = {
 
 module.exports = Application;
 
-},{"../templates/data-table.hbs":3,"../templates/data-filters.hbs":4,"../templates/no-results.hbs":5,"./utilities/GetAjaxContent":6,"./CustomApp":7}],6:[function(require,module,exports){
+},{"../templates/data-filters.hbs":3,"../templates/data-table.hbs":4,"../templates/no-results.hbs":5,"./utilities/GetAjaxContent":6,"./CustomApp":7}],6:[function(require,module,exports){
 
 /**
 *	returns an Ajax GET request using deferred, url is required, dataType is optional
@@ -370,7 +370,7 @@ CustomSelect.prototype = {
 
 module.exports = CustomSelect;
 
-},{"../../templates/custom-select.hbs":9}],4:[function(require,module,exports){
+},{"../../templates/custom-select.hbs":9}],3:[function(require,module,exports){
 module.exports=require("handleify").template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -379,7 +379,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
   return "\n	<div id=\"datafilter-programs\" class=\"data-filter\"></div>\n\n	<div id=\"datafilter-years\" class=\"data-filter\"></div>\n\n	<div id=\"datafilter-cities\" class=\"data-filter\"></div>\n\n	<div id=\"datafilter-states\" class=\"data-filter\"></div>\n\n	<div id=\"datafilter-countries\" class=\"data-filter\"></div>\n\n	<button id=\"datafilters-reset\">Clear All Filters</button>\n";
   })
-},{"handleify":10}],3:[function(require,module,exports){
+},{"handleify":10}],4:[function(require,module,exports){
 module.exports=require("handleify").template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
