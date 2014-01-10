@@ -139,6 +139,7 @@
 		// Watch files for changes
 		'watch': {
 			options: {
+				spawn: false,
 				livereload: '<%= lrPortNum %>'
 			},
 			html: {
