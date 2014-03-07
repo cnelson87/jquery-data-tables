@@ -19,14 +19,16 @@
 		// File Paths
 		basePath		: '.',
 		sourcePath		: '<%= basePath %>/src',
+		sourceData		: '<%= sourcePath %>/data',
 		sourceHTML		: '<%= sourcePath %>/html',
 		sourceIncludes	: '<%= sourceHTML %>/_includes',
 		sourceScripts	: '<%= sourcePath %>/scripts',
 		sourceStyles	: '<%= sourcePath %>/styles',
 		sourceTemplates	: '<%= sourcePath %>/templates',
 		sourceImages	: '<%= sourcePath %>/images',
-		sourceVendor	: '<%= sourceScripts %>/vendor',
+		sourceVendor	: '<%= sourcePath %>/vendor',
 		sitePath		: '<%= basePath %>/public',
+		outputData		: '<%= sitePath %>/_data',
 		outputAssets	: '<%= sitePath %>/_ui',
 		outputScripts	: '<%= outputAssets %>/js',
 		outputStyles	: '<%= outputAssets %>/css',
@@ -38,7 +40,6 @@
 		'connect': {
 			dev: {
 				options: {
-					hostname: null,
 					port: '<%= portNum %>',
 					base: '<%= sitePath %>/',
 					livereload: '<%= lrPortNum %>'
@@ -86,14 +87,15 @@
 			},
 			vendor: {
 				src: [
-					'<%= sourceVendor %>/modernizr-2.7.0.custom.min.js',
-					'<%= sourceVendor %>/json2.js',
-					'<%= sourceVendor %>/jquery-1.10.2.min.js',
+					'<%= sourceVendor %>/modernizr.custom.min.js',
+					'<%= sourceVendor %>/jquery.min.js',
+					'<%= sourceVendor %>/jquery-ui.min.js',
 					'<%= sourceVendor %>/jquery.dataTables-1.10.0-dev.js',
 					'<%= sourceVendor %>/jquery.dataTables.columnFilter.js',
 					'<%= sourceVendor %>/jquery.dataTables.titleNumeric.js',
 					'<%= sourceVendor %>/jquery.dataTables.fnFilterClear.js',
-					'<%= sourceVendor %>/class.js'
+					'<%= sourceVendor %>/class.js',
+					'<%= sourceScripts %>/shims/classList.js'
 				],
 				dest: '<%= outputVendor %>/vendor.js'
 			}
@@ -115,8 +117,8 @@
 				}
 			},
 			files: [
-				'src/scripts/**/*.js',
-				'!src/scripts/vendor/**/*',
+				'<%= sourceScripts %>/**/*.js',
+				'!<%= sourceVendor %>/**/*',
 				'!Gruntfile.js'
 			]
 		},
