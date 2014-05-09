@@ -48,15 +48,14 @@
 		},
 
 		// Compile javascript modules
-		'browserify2': {
+		'browserify': {
 			compile: {
-				entry: '<%= sourceScripts %>/initialize.js',
-				compile: '<%= outputScripts %>/<%= fileName %>.js',
-				// Precompile Handlebars templates
-				beforeHook: function(bundle) {
-					bundle.transform(handleify);
-				},
-				debug: true
+				src: '<%= sourceScripts %>/initialize.js',
+				dest: '<%= outputScripts %>/<%= fileName %>.js',
+				options: {
+					transform: ['handleify'],
+					debug: true
+				}
 			}
 		},
 
@@ -150,7 +149,7 @@
 			},
 			scripts: {
 				files: '<%= sourceScripts %>/**/*.js',
-				tasks: ['jshint', 'browserify2']
+				tasks: ['jshint', 'browserify']
 			},
 			styles: {
 				files: '<%= sourceStyles %>/**/*.*',
@@ -158,7 +157,7 @@
 			},
 			templates: {
 				files: '<%= sourceTemplates %>/**/*.hbs',
-				tasks: ['browserify2']
+				tasks: ['browserify']
 			}
 		}
 
@@ -169,7 +168,7 @@
 	require('load-grunt-tasks')(grunt);
 
 	// Register custom tasks
-	grunt.registerTask('build', ['includereplace', 'jshint', 'browserify2', 'concat', 'sass']);
+	grunt.registerTask('build', ['includereplace', 'jshint', 'browserify', 'concat', 'sass']);
 	grunt.registerTask('run', ['build', 'connect', 'watch']);
 
 };

@@ -1,5 +1,5 @@
 
-var getAjaxContent = require('./utilities/GetAjaxContent');
+var getAjaxContent = require('./utils/GetAjaxContent');
 var templateDataTable = require('../templates/data-table.hbs');
 var templateDataFilters = require('../templates/data-filters.hbs');
 var templateNoResults = require('../templates/no-results.hbs');
