@@ -9,7 +9,7 @@ html, body {
 
 #wrapper {
 	width: 100%;
-	min-width: 1000px;
+	min-width: $mobile-sm;
 	height: 100%;
 	min-height: 100%;
 	margin: 0 auto;
@@ -27,7 +27,7 @@ html, body {
 	z-index: 3;
 
 	#header-inner {
-		width: 1000px;
+		width: $mobile-sm;
 		height: 80px;
 		background: #cdcdcd;
 		margin: 0 auto;
@@ -47,7 +47,7 @@ html, body {
 	z-index: 2;
 
 	#footer-inner {
-		width: 1000px;
+		width: $mobile-sm;
 		height: 80px;
 		background: #cdcdcd;
 		margin: 0 auto;
@@ -66,63 +66,29 @@ html, body {
 	z-index: 1;
 
 	#main-inner {
-		width: 1000px;
+		width: $mobile-sm;
 		height: 100%;
 		background: #fff;
 		margin: 0 auto;
 		padding: 0 20px;
 		position: relative;
-		overflow: scroll;
+		overflow: auto;
 		@include prefix(box-sizing, border-box);
 
 		#content {
-			min-height: 400px;
+			width: $mobile-sm - 40;
 			padding: 40px 0;
 			position: relative;
+			@include prefix(box-sizing, border-box);
 		}
 
 		#subcol {
-			min-height: 400px;
-			padding: 94px 0 40px 0;
+			width: $mobile-sm - 40;
+			padding: 40px 0;
 			position: relative;
+			@include prefix(box-sizing, border-box);
 		}
 
-		&.twocols {
-
-			#content {
-				float: left;
-				width: 720px;
-			}
-			#subcol {
-				float: right;
-				width: 200px;
-			}
-
-		}
-
-	}
-
-}
-
-.wide-layout {
-
-	#header #header-inner,
-	#footer #footer-inner,
-	#main #main-inner {
-		width: 1200px;
-	}
-
-	#main {
-		#main-inner {
-			&.twocols {
-				#content {
-					width: 800px;
-				}
-				#subcol {
-					width: 320px;
-				}
-			}
-		}
 	}
 
 }

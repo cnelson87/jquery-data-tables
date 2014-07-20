@@ -1,0 +1,35 @@
+
+// CONFIG VARS
+//-------------------------------------------------------
+
+// Namespace
+$namespace: "grunting";
+
+// Colors
+$text-primary: #010101;
+$text-dark-gray: #333;
+$text-med-gray: #999;
+$text-light-gray: #ccc;
+$link-color: #900;
+$link-hover-color: #c00;
+$error-color: #900;
+$border-color-dark: #333;
+$border-color-med: #999;
+$border-color-light: #ccc;
+$border-color-xlight: #dedede;
+
+$vendor-prefixes: webkit moz ms o spec;
+
+$image-path: "../img";
+$font-path: "../fonts";
+
+// Breakpoints
+$mobile-sm: 320px;
+$mobile-lrg: 480px;
+$tablet-sm: 640px;
+$tablet-lrg: 760px;
+$desktop-sm: 960px;
+$desktop-med: 1024px;
+$desktop-lrg: 1280px;
+$desktop-xlrg: 1600px;
+$desktop-xxlrg: 1920px;

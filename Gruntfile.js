@@ -117,6 +117,7 @@
 			},
 			files: [
 				'<%= sourceScripts %>/**/*.js',
+				'!<%= sourceScripts %>/shims/**/*.js',
 				'!<%= sourceVendor %>/**/*',
 				'!Gruntfile.js'
 			]

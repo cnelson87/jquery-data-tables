@@ -1,10 +1,14 @@
 
-@import "global/vars";
-@import "global/mixins";
+// configuration
+@import "config/vars";
+@import "config/mixins";
+
+// global styles
 @import "global/base";
 @import "global/utils";
 @import "global/forms";
 @import "global/layout";
+@import "global/breakpoints";
 
 //custom components
 @import "custom/datatable";

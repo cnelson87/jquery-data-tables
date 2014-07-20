@@ -1,0 +1,246 @@
+/*
+/* BREAKPOINTS
+/*-----------------------------------------------------*/
+
+
+#breakpoint-indicator {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+	z-index: 1;
+}
+
+
+@include respond-to(mobile-lrg) {
+
+	#breakpoint-indicator {
+		z-index: 2;
+	}
+
+	#wrapper {
+		min-width: $mobile-lrg;
+	}
+
+	#header {
+		#header-inner {
+			width: $mobile-lrg;
+		}
+	}
+
+	#footer {
+		#footer-inner {
+			width: $mobile-lrg;
+		}
+	}
+
+	#main {
+		#main-inner {
+			width: $mobile-lrg;
+			#content {
+				width: $mobile-lrg - 40;
+			}
+			#subcol {
+				width: $mobile-lrg - 40;
+			}
+		}
+	}
+
+}
+
+
+@include respond-to(tablet-sm) {
+
+	#breakpoint-indicator {
+		z-index: 3;
+	}
+
+	#wrapper {
+		min-width: $tablet-sm;
+	}
+
+	#header {
+		#header-inner {
+			width: $tablet-sm;
+		}
+	}
+
+	#footer {
+		#footer-inner {
+			width: $tablet-sm;
+		}
+	}
+
+	#main {
+		#main-inner {
+			width: $tablet-sm;
+			#content {
+				width: $tablet-sm - 40;
+			}
+			#subcol {
+				width: $tablet-sm - 40;
+			}
+		}
+	}
+
+}
+
+
+@include respond-to(tablet-lrg) {
+
+	#breakpoint-indicator {
+		z-index: 4;
+	}
+
+	#wrapper {
+		min-width: $tablet-lrg;
+	}
+
+	#header {
+		#header-inner {
+			width: $tablet-lrg;
+		}
+	}
+
+	#footer {
+		#footer-inner {
+			width: $tablet-lrg;
+		}
+	}
+
+	#main {
+		#main-inner {
+			width: $tablet-lrg;
+			#content {
+				width: $tablet-lrg - 40;
+			}
+			#subcol {
+				width: $tablet-lrg - 40;
+			}
+		}
+	}
+
+}
+
+
+@include respond-to(desktop-sm) {
+
+	#breakpoint-indicator {
+		z-index: 5;
+	}
+
+	#wrapper {
+		min-width: $desktop-sm;
+	}
+
+	#header {
+		#header-inner {
+			width: $desktop-sm;
+		}
+	}
+
+	#footer {
+		#footer-inner {
+			width: $desktop-sm;
+		}
+	}
+
+	#main {
+		#main-inner {
+			width: $desktop-sm;
+
+			#content {
+				width: $desktop-sm - 40;
+			}
+
+			&.twocols {
+				#content {
+					float: left;
+					width: 700px;
+					min-height: 400px;
+				}
+				#subcol {
+					float: right;
+					width: 200px;
+					min-height: 400px;
+				}
+			}
+
+		}
+	}
+
+}
+
+
+@include respond-to(desktop-med) {
+
+	#breakpoint-indicator {
+		z-index: 6;
+	}
+
+	#wrapper {
+		min-width: 1000px;
+	}
+
+	#header {
+		#header-inner {
+			width: 1000px;
+		}
+	}
+
+	#footer {
+		#footer-inner {
+			width: 1000px;
+		}
+	}
+
+	#main {
+		#main-inner {
+			width: 1000px;
+
+			#content {
+				width: 960px;
+			}
+
+			&.twocols {
+				#content {
+					width: 740px;
+				}
+				#subcol {
+					width: 200px;
+				}
+			}
+
+		}
+	}
+
+}
+
+
+@include respond-to(desktop-lrg) {
+
+	#breakpoint-indicator {
+		z-index: 7;
+	}
+
+}
+
+
+@include respond-to(desktop-xlrg) {
+
+	#breakpoint-indicator {
+		z-index: 8;
+	}
+
+}
+
+
+@include respond-to(desktop-xxlrg) {
+
+	#breakpoint-indicator {
+		z-index: 9;
+	}
+
+}
+

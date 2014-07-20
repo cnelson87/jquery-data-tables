@@ -1,8 +1,8 @@
 /*
-  backbone-pageable 1.4.5
-  http://github.com/backbone-paginator/backbone-pageable
+  backbone.paginator 2.0.0
+  http://github.com/backbone-paginator/backbone.paginator
 
-  Copyright (c) 2013 Jimmy Yuen Ho Wong
+  Copyright (c) 2013 Jimmy Yuen Ho Wong and contributors
   Licensed under the MIT @license.
 */
 
@@ -303,6 +303,7 @@
         state.currentPage;
 
       if (!_isArray(models)) models = models ? [models] : [];
+      models = models.slice();
 
       if (mode != "server" && state.totalRecords == null && !_isEmpty(models)) {
         state.totalRecords = models.length;
@@ -331,7 +332,7 @@
         // make sure the models in the current page and full collection have the
         // same references
         if (models && !_isEmpty(models)) {
-          this.reset([].slice.call(models), _extend({silent: true}, options));
+          this.reset(models, _extend({silent: true}, options));
           this.getPage(state.currentPage);
           models.splice.apply(models, [0, models.length].concat(this.models));
         }
@@ -638,12 +639,7 @@
       var state = this.state;
       var totalPages = ceil(state.totalRecords / pageSize);
       var currentPage = totalPages ?
-        max(state.firstPage,
-            floor(totalPages *
-                  (state.firstPage ?
-                   state.currentPage :
-                   state.currentPage + 1) /
-                  state.totalPages)) :
+          max(state.firstPage, floor(totalPages * state.currentPage / state.totalPages)) :
         state.firstPage;
 
       state = this.state = this._checkState(_extend({}, state, {
@@ -745,7 +741,7 @@
        @return {boolean} `true` if this collection can page backward, `false`
        otherwise.
     */
-    hasPrevious: function () {
+    hasPreviousPage: function () {
       var state = this.state;
       var currentPage = state.currentPage;
       if (this.mode != "infinite") return currentPage > state.firstPage;
@@ -756,7 +752,7 @@
        @return {boolean} `true` if this collection can page forward, `false`
        otherwise.
     */
-    hasNext: function () {
+    hasNextPage: function () {
       var state = this.state;
       var currentPage = this.state.currentPage;
       if (this.mode != "infinite") return currentPage < state.lastPage;

@@ -1,0 +1,125 @@
+
+// MIXINS
+//-------------------------------------------------------
+
+// Prefix properties and values 
+//  - also emits rule without prefix
+// ----------------------------------------
+
+$default-prefixes: -webkit-, -moz-, -ms-, -o-;
+
+@mixin prefix($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$prefix}#{$property}:$value;
+	}
+	#{$property}:$value;
+}
+@mixin prefix-value($property, $value, $prefixes: $default-prefixes) {
+	
+	// Unquote the values
+	$property : unquote($property);
+	$value    : unquote($value);
+	
+	// Loop through the prefixes given
+	@each $prefix in $prefixes {
+		#{$property}:#{$prefix}#{$value};
+	}
+}
+
+
+// ClearFix mixin to use on especific rules
+@mixin clearfix {
+	&:after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+}
+
+
+// Hide the text of the target container
+@mixin hide-text {
+	text-indent: 200%;
+	white-space: nowrap;
+	overflow: hidden;
+ }
+
+
+// Hide element offscreen
+@mixin offscreen {
+	position: fixed;
+	left: -9999px;
+ }
+
+
+// Usage: @include calc(left, "50% - 700px/2");
+@mixin calc($property, $expression) { 
+	#{$property}: -webkit-calc(#{$expression}); 
+	#{$property}: -moz-calc(#{$expression}); 
+	#{$property}: -ms-calc(#{$expression}); 
+	#{$property}: -o-calc(#{$expression}); 
+	#{$property}: calc(#{$expression}); 
+}
+
+// Calculate specific dimentions of a property
+@mixin calc-prop-scale($property, $value, $scale) {
+	#{$property}: $value * ($scale/100);
+}
+
+// Calculate proportional values of an element
+@mixin calc-dimensions($width, $height, $scale) {
+	@include calc-prop-scale(width, $width, $scale);
+	@include calc-prop-scale(height, $height, $scale);
+}
+
+
+// Create a mediaquery depends of the param passed
+@mixin respond-to($media) {
+	@if $media == 'mobile-sm' {
+		@media only screen and (min-width: $mobile-sm)  { @content; }
+	}
+	@else if $media == 'mobile-lrg' {
+		@media only screen and (min-width: $mobile-lrg)  { @content; }
+	}
+	@else if $media == 'tablet-sm' {
+		@media only screen and (min-width: $tablet-sm)  { @content; }
+	}
+	@else if $media == 'tablet-lrg' {
+		@media only screen and (min-width: $tablet-lrg)  { @content; }
+	}
+	@else if $media == 'desktop-sm' {
+		@media only screen and (min-width: $desktop-sm)  { @content; }
+	}
+	@else if $media == 'desktop-med' {
+		@media only screen and (min-width: $desktop-med)  { @content; }
+	}
+	@else if $media == 'desktop-lrg' {
+		@media only screen and (min-width: $desktop-lrg)  { @content; }
+	}
+	@else if $media == 'desktop-xlrg' {
+		@media only screen and (min-width: $desktop-xlrg)  { @content; }
+	}
+	@else if $media == 'desktop-xxlrg' {
+		@media only screen and (min-width: $desktop-xxlrg)  { @content; }
+	}
+	@else {
+		@media only screen and (min-width: $media)  { @content; }
+	}
+}
+
+// Create a mediaquery using input number as max-width
+@mixin respond-to-max($maxW) {
+	@media only screen and (max-width: $maxW)  { @content; }
+}
+
+// Create a mediaquery using input numbers as min-width and max-width
+@mixin respond-to-minmax($minW, $maxW) {
+	@media only screen and (min-width: $minW) and (max-width: $maxW)  { @content; }
+}
+
