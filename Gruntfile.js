@@ -53,7 +53,7 @@
 				src: '<%= sourceScripts %>/initialize.js',
 				dest: '<%= outputScripts %>/<%= fileName %>.js',
 				options: {
-					transform: ['handleify'],
+					transform: ['browserify-handlebars'],
 					debug: true
 				}
 			}
